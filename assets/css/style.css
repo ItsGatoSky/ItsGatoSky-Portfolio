@@ -1,0 +1,327 @@
+/*
+Vintage Aesthetic Style
+-----------------------
+Font Palette:
+- Headings: 'Playfair Display', serif (classy, vintage)
+- Body/Code: 'Fira Code', monospace (programmer aesthetic)
+
+Color Palette:
+- Parchment (background): #F5EFE6
+- Soft Black (text): #1B1717
+- Muted Gold (accent): #C0A062
+- Dark Sepia (containers): #4E4332
+- White (on dark containers): #EAE0D5
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+body {
+    background-color: #F5EFE6;
+    color: #1B1717;
+    font-family: 'Fira Code', monospace;
+    padding-top: 56px;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: rgba(245, 239, 230, 0.85); /* Semi-transparent parchment */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 1px solid #C0A062;
+}
+
+.navbar-brand, .nav-link {
+    color: #1B1717 !important;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand {
+    color: #C0A062 !important;
+    font-size: 1.5rem;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: #C0A062 !important;
+}
+
+.navbar-toggler {
+    border-color: #C0A062;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(192, 160, 98, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* --- Hero Section (Index) --- */
+.hero-section {
+    height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #4E4332;
+    color: #EAE0D5;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #C0A062;
+}
+
+/* Typing Animation */
+.typing-container {
+    display: inline-block;
+}
+
+.typed-text {
+    overflow: hidden;
+    border-right: .15em solid #C0A062; /* Cursor */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .10em;
+    animation:
+        typing 3.5s steps(30, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #C0A062; }
+}
+
+
+/* Floating Musical Notes */
+.music-notes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.note {
+    position: absolute;
+    font-size: 2rem;
+    color: #C0A062;
+    opacity: 0.2;
+    animation: float-up 10s infinite linear;
+}
+
+.note.n1 { left: 10%; animation-duration: 15s; animation-delay: -5s; }
+.note.n2 { left: 20%; animation-duration: 12s; animation-delay: -2s; font-size: 1.5rem; }
+.note.n3 { left: 35%; animation-duration: 18s; animation-delay: -10s; }
+.note.n4 { left: 50%; animation-duration: 10s; animation-delay: -7s; font-size: 1.2rem; }
+.note.n5 { left: 65%; animation-duration: 14s; animation-delay: 0s; }
+.note.n6 { left: 80%; animation-duration: 16s; animation-delay: -8s; font-size: 1.8rem; }
+.note.n7 { left: 90%; animation-duration: 11s; animation-delay: -4s; }
+
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.2;
+    }
+    90% {
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- General Page Styles --- */
+.page-section {
+    padding: 6rem 0;
+}
+
+.divider {
+    height: 0.15rem;
+    max-width: 6rem;
+    margin: 1.5rem auto;
+    background-color: #C0A062;
+    opacity: 1;
+}
+
+h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    color: #4E4332;
+}
+
+.btn-warning {
+    background-color: #C0A062;
+    border: 1px solid #4E4332;
+    color: #1B1717;
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 3px 3px 0px #4E4332;
+    border-radius: 0;
+}
+
+.btn-warning:hover {
+    background-color: #d4b37a;
+    border-color: #1B1717;
+    color: #1B1717;
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px #4E4332;
+}
+
+/* --- Card Styles (Gallery) --- */
+.card {
+    background-color: transparent;
+    border: 1px solid #4E4332;
+    border-radius: 0;
+    color: #1B1717;
+}
+
+.card .card-img-top {
+    border-radius: 0;
+    filter: sepia(0.4) contrast(0.9);
+    transition: filter 0.5s ease;
+}
+
+.card:hover .card-img-top {
+    filter: sepia(0) contrast(1);
+}
+
+.card-body, .card-footer {
+    background-color: transparent;
+}
+
+.card-title {
+    color: #C0A062;
+    font-family: 'Playfair Display', serif;
+}
+
+.card-footer {
+    border-top: 1px solid #4E4332;
+}
+
+/* --- Contact Form --- */
+.form-control {
+    background-color: #f5efe6c9;
+    border: 1px solid #4E4332;
+    color: #1B1717;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    background-color: #f5efe6c9;
+    border-color: #C0A062;
+    color: #1B1717;
+    box-shadow: 0 0 0 0.25rem rgba(192, 160, 98, 0.3);
+}
+
+.form-label {
+    font-family: 'Playfair Display', serif;
+    color: #4E4332;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #4E4332;
+    color: #EAE0D5;
+    border-top: 1px solid #C0A062;
+}
+
+.footer .social-icons a, .social-icons-contact a {
+    color: #EAE0D5 !important;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer .social-icons a:hover, .social-icons-contact a:hover {
+    color: #C0A062 !important;
+    transform: scale(1.1);
+}
+
+/* Ensure images in about page also get the vintage treatment */
+.img-fluid {
+    border: 1px solid #4E4332;
+    padding: 5px;
+    background: #EAE0D5;
+}
+
+/* --- Gallery Page --- */
+.gallery-item {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #4E4332;
+    padding: 5px;
+    background: #EAE0D5;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.gallery-item .img-fluid {
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .img-fluid {
+    transform: scale(1.1);
+}
+
+/* --- Modal Styles --- */
+.modal-content {
+    background-color: #F5EFE6;
+    border: 2px solid #4E4332;
+    border-radius: 0;
+    color: #1B1717;
+}
+
+.modal-header, .modal-footer {
+    border-color: #C0A062;
+}
+
+.modal-header .btn-close {
+    filter: invert(0.2);
+}
+
+.modal-body .img-fluid {
+    border: 1px solid #4E4332;
+    padding: 4px;
+    background: #EAE0D5;
+    margin-bottom: 1rem;
+}
+
+.btn-secondary {
+    background-color: #5D4037;
+    border: 1px solid #4E4332;
+    color: #EAE0D5;
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 3px 3px 0px #4E4332;
+    border-radius: 0;
+}
+
+.btn-secondary:hover {
+    background-color: #7a5f53;
+    border-color: #1B1717;
+    color: #EAE0D5;
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px #4E4332;
+}
