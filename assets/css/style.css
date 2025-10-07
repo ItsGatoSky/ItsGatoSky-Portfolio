@@ -366,6 +366,7 @@ Carousel Stacking Order (z-index)
     z-index: 2; /* Ensure caption is above the slide item */
     position: absolute; /* Re-affirm position */
     bottom: 1rem; /* Default bottom position */
+    pointer-events: none; /* Allow clicks to pass through the container to video controls */
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -376,6 +377,7 @@ Carousel Stacking Order (z-index)
 .carousel-caption p {
     color: #F5E6C4; /* Light parchment color */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Stronger dark shadow */
+    pointer-events: auto; /* Make the text itself clickable again */
 }
 
 .carousel-caption a {
